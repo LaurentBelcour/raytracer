@@ -5,7 +5,7 @@ project(Raytracer)
 find_package(X11 REQUIRED)
 find_package(Threads REQUIRED)
 
-add_executable(test main.cpp TriangleMesh.cpp)
+add_executable(test main.cpp TriangleMesh.cpp Whitted.cpp)
 
 target_link_libraries(test ${Threads_LIBS})
 target_link_libraries(test ${X11_LIBS})

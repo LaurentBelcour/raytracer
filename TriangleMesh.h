@@ -52,7 +52,7 @@ class TriangleMesh : public Object
 					hit.o = this ;
 					hit.occlusion_dist = 0.0f ;
 
-					return true ;
+					return t >= 0.0f ;
 				}
 				else
 				{

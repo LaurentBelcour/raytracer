@@ -106,7 +106,7 @@ class Sphere : public Object
 				hit.p = origin + hit.t*direction ;
 				hit.o = this ;
 				hit.n = (hit.p - _center) / _radius ;
-				return true;
+				return hit.t >= 0.0f;
 			}
 			else
 			{
@@ -162,7 +162,7 @@ class Triangle : public Object
 					hit.o = this ;
 					hit.occlusion_dist = 0.0f ;
 
-					return true ;
+					return t >= 0.0f ;
 				}
 			}
 			else
@@ -206,7 +206,7 @@ class Triangle : public Object
 					hit.o = this ;
 					hit.occlusion_dist = 0.0f ;
 
-					return true ;
+					return t >= 0.0f ;
 				}
 				else
 				{
@@ -248,7 +248,7 @@ class Scene
 			{
 				hittemp.t = FLT_MAX;
 				hittemp.occlusion_dist = FLT_MAX ;
-				if((*iter)->intersect(origin, direction, hittemp, dtemp) && hittemp.t < hit.t)
+				if((*iter)->intersect(origin+EPSILON*direction, direction, hittemp, dtemp) && hittemp.t < hit.t)
 				{
 					hit = hittemp ;
 				}
