@@ -40,6 +40,7 @@ Vector Whitted::raytrace(Vector origin, Vector direction, unsigned int i) const
 	Hit hit; float d;
 	if(_scene->intersect(origin, direction, hit, d))
 	{
+		return Vector(1,0,0) ;
 		// TODO all the lights
 		Vector position;
 		Vector light = _scene->one_light()->sample(position) ;

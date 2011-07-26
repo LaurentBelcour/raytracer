@@ -13,7 +13,9 @@ class TriangleMesh : public Object
 
 		virtual bool intersect(const Vector& origin, const Vector& direction, Hit& hit, float& d) const ;
 
-		static void load_obj(std::string filename) ;
+		// Load a triangle mesh from a .obj file
+		//
+		static TriangleMesh* load_obj(std::string filename) ;
 
 	private:
 		inline bool intersect_triangle(unsigned int face_id, const Vector& origin, const Vector& direction, Hit& hit) const
